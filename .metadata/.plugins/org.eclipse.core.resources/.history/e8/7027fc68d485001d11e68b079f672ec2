@@ -1,0 +1,27 @@
+package com.ict.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class BasicController {
+
+	@RequestMapping(value = "/goA")
+	public String goA() {
+		return "goA";
+	}
+	
+	@RequestMapping(value = "/getData")
+	public String getData(String data1,int data2) {
+		return "";
+	}
+	
+	@RequestMapping("/getMoney")
+	public String getMoney(int won,Model model) {
+		double total = won/36.16;
+		System.out.println("입력한 금액은"+won+"입니다");
+		System.out.println("입력한 금액에 따른 환전금액은"+total+"입니다");
+		return "exchange";
+	}
+}

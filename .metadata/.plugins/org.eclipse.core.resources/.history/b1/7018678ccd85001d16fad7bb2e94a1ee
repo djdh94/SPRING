@@ -1,0 +1,26 @@
+package com.ict.controller.di.classfile;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Library {
+	
+	@Autowired
+	private Book book;
+	
+	public Library() {
+		book.read();
+	}
+
+
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+
+
+	public void browse() {
+		System.out.print("도서관에서");
+		book.read();
+	}
+}

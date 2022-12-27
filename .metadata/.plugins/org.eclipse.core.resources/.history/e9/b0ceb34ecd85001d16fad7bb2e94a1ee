@@ -1,0 +1,13 @@
+package com.ict.controller.di.classfile;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Library {
+	
+	@Autowired
+	private Book book;
+	
+	public Library() {
+		
+	}
+}
