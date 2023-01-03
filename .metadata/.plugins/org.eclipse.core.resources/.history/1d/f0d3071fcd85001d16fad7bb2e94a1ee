@@ -1,7 +1,0 @@
-package com.ict.controller.di.classfile;
-
-public class Book {
-	public void read() {
-		System.out.println("책을 읽습니다");
-	}
-}
