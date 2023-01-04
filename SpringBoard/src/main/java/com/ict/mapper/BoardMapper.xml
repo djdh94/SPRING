@@ -4,9 +4,25 @@
 	
 	<mapper namespace="com.ict.mapper.BoardMapper">
 	
-		<select id="getList" resultType="com.ict.vo.BoardVO">
+		<select id="getList" resultType="com.ict.domain.BoardVO">
 		<![CDATA[
-			SELECT * FROM board_tbl where bno<4
+			SELECT * FROM board_tbl order by bno desc
 		]]>
 		</select>
+		
+		<insert id="insert">
+			insert into board_tbl(bno,title,content,writer) values(board_num.nextval,#{title},#{content},#{writer})
+		</insert>
+		
+		<select id="select" resultType="com.ict.domain.BoardVO">
+			SELECT * FROM board_tbl where bno=#{bno}
+		</select>
+		
+		<delete id="delete">
+			delete from board_tbl where bno=#{bno}
+		</delete>
+		
+		<update id="update">
+			update board_tbl set title=#{title},content=#{content},updatedate=sysdate where bno=#{bno}
+		</update>
 	</mapper>
