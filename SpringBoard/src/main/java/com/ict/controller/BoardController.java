@@ -17,8 +17,8 @@ public class BoardController {
 	private BoardMapper boardmapper;
 	
 	@GetMapping("/boardList")
-	public String getboardList(Model model) {
-		model.addAttribute("boardList",boardmapper.getList());
+	public String getboardList(long pageNum,Model model) {
+		model.addAttribute("boardList",boardmapper.getList(pageNum));
 		return "boardList";
 	}
 	

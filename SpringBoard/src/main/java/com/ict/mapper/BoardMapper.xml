@@ -6,7 +6,10 @@
 	
 		<select id="getList" resultType="com.ict.domain.BoardVO">
 		<![CDATA[
-			SELECT * FROM board_tbl order by bno desc
+			SELECT * FROM
+			(SELECT /*+ INDEX_DESC(board_tbl pk_board) */
+			rownum rn, board_tbl.* FROM board_tbl WHERE rownum <=(#{pageNum}*10))
+			WHERE rn > ((#{pageNum}-1)*10)
 		]]>
 		</select>
 		
