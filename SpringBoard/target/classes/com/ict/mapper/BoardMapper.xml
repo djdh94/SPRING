@@ -8,8 +8,8 @@
 		<![CDATA[
 			SELECT * FROM
 			(SELECT /*+ INDEX_DESC(board_tbl pk_board) */
-			rownum rn, board_tbl.* FROM board_tbl WHERE rownum <=(#{pageNum}*10))
-			WHERE rn > ((#{pageNum}-1)*10)
+			rownum rn, board_tbl.* FROM board_tbl WHERE rownum <= #{pageEnd})
+			WHERE rn > #{pageStart}
 		]]>
 		</select>
 		
@@ -28,4 +28,9 @@
 		<update id="update">
 			update board_tbl set title=#{title},content=#{content},updatedate=sysdate where bno=#{bno}
 		</update>
+		
+		<select id="countPageNum" resultType="int">
+			select count(*) from board_tbl
+		</select>
+		
 	</mapper>
