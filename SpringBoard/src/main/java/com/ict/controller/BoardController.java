@@ -11,30 +11,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ict.domain.BoardVO;
 import com.ict.domain.Criteria;
 import com.ict.domain.PageMaker;
+import com.ict.domain.SearchCriteria;
 import com.ict.mapper.BoardMapper;
+import com.ict.service.BoardService;
 
 @Controller
 public class BoardController {
 	
 	@Autowired
-	private BoardMapper boardmapper;
+	private BoardService service;
 	
 	@GetMapping("/boardList")
-	public String getboardList(Criteria cri,Model model) {
-		model.addAttribute("boardList",boardmapper.getList(cri));
+	public String getboardList(SearchCriteria cri,Model model) {
+		model.addAttribute("boardList",service.getList(cri));
 		
 		// 버튼 처리를 위해 추가로 페이지메이커 생성
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		//131 대신 실제로 db내 글개수를 받아옴
-		pageMaker.setTotalBoard(boardmapper.countPageNum());
+		pageMaker.setTotalBoard(service.countPageNum(cri));
 		model.addAttribute("pageMaker",pageMaker);
 		return "boardList";
 	}
 	
 	@GetMapping("/boardDetail/{bno}")   
 	public String getboardDetail(@PathVariable long bno,Model model) {
-		model.addAttribute("board",boardmapper.select(bno));
+		model.addAttribute("board",service.select(bno));
 		return "boardDetail";
 	}
 	
@@ -45,25 +47,25 @@ public class BoardController {
 	
   	@PostMapping("/boardInsert")
 	public String getboardInsert(BoardVO vo) {
-		boardmapper.insert(vo); 
+		service.insert(vo); 
 		return "redirect:/boardList";
 	}
 	
 	@PostMapping("/boardDelete")
 	public String getboardDelete(long bno) {
-		boardmapper.delete(bno);
+		service.delete(bno);
 		return "redirect:/boardList";
 	}
 	
 	@PostMapping("/boardUpdateForm")
 	public String getboardUpdateForm(long bno,Model model) {
-		model.addAttribute("board",boardmapper.select(bno));
+		model.addAttribute("board",service.select(bno));
 		return "boardUpdateForm";
 	}
 	
 	@PostMapping("/boardUpdate")
 	public String getboardUpdate(BoardVO vo) {
-		boardmapper.update(vo);
+		service.update(vo);
 		return "redirect:/boardDetail/"+vo.getBno();
 	}
 }

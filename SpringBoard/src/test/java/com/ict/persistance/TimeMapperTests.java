@@ -28,4 +28,5 @@ public class TimeMapperTests {
 	public void testGetTime2() {
 		log.info(timeMapper.getTime2());
 	}
+	
 }

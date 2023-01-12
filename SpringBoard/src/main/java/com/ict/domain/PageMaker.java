@@ -13,7 +13,7 @@ public class PageMaker {
 	
 	private int displayPageNum;
 	
-	private Criteria cri;
+	private SearchCriteria cri;
 	
 	public void calcData() {
 		//한페이지당 깔고싶은 버튼갯수
