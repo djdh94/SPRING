@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ict.domain.BoardVO;
 import com.ict.domain.Criteria;
@@ -21,7 +22,7 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	@GetMapping("/boardList")
+	@GetMapping("/boardList") 
 	public String getboardList(SearchCriteria cri,Model model) {
 		model.addAttribute("boardList",service.getList(cri));
 		
@@ -52,8 +53,11 @@ public class BoardController {
 	}
 	
 	@PostMapping("/boardDelete")
-	public String getboardDelete(long bno) {
+	public String getboardDelete(long bno,SearchCriteria cri,RedirectAttributes rttr) {
 		service.delete(bno);
+		rttr.addAttribute("pageNum",cri.getPageNum());
+		rttr.addAttribute("searchType",cri.getSearchType());
+		rttr.addAttribute("keyword",cri.getKeyword());
 		return "redirect:/boardList";
 	}
 	
@@ -64,8 +68,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("/boardUpdate")
-	public String getboardUpdate(BoardVO vo) {
+	public String getboardUpdate(BoardVO vo,SearchCriteria cri,RedirectAttributes rttr) {
 		service.update(vo);
+		// rttr.addAttribute("파라미터명","전달자료")
+		//는 호출되면 redirect 주소 뒤에 파라미터를 붙임
+		rttr.addAttribute("pageNum",cri.getPageNum());
+		rttr.addAttribute("searchType",cri.getSearchType());
+		rttr.addAttribute("keyword",cri.getKeyword());
 		return "redirect:/boardDetail/"+vo.getBno();
 	}
 }
