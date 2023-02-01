@@ -1,9 +1,13 @@
 package com.ict.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,4 +38,20 @@ public class ReplyController {
 		}
 		return entity;
 	}
+	
+	@GetMapping(value = "/all/{bno}",
+						produces= {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public ResponseEntity<List<ReplyVO>> list(@PathVariable("bno") Long bno){
+		ResponseEntity<List<ReplyVO>> entity=null;
+		try {
+			entity=new ResponseEntity<>(
+					service.listReply(bno),HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity=new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	
 }
