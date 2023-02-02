@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -16,7 +17,11 @@ import com.ict.domain.SearchCriteria;
 import com.ict.mapper.BoardMapper;
 import com.ict.service.BoardService;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
+@Log4j
+@RequestMapping("/board")
 public class BoardController {
 	
 	@Autowired
@@ -32,24 +37,24 @@ public class BoardController {
 		//131 대신 실제로 db내 글개수를 받아옴
 		pageMaker.setTotalBoard(service.countPageNum(cri));
 		model.addAttribute("pageMaker",pageMaker);
-		return "boardList";
+		return "board/boardList";
 	}
 	
 	@GetMapping("/boardDetail/{bno}")   
 	public String getboardDetail(@PathVariable long bno,Model model) {
 		model.addAttribute("board",service.select(bno));
-		return "boardDetail";
+		return "board/boardDetail";
 	}
 	
 	@GetMapping("/boardInsert")
 	public String getboardInsertForm() {
-		return "boardForm";
+		return "board/boardForm";
 	}
 	
   	@PostMapping("/boardInsert")
 	public String getboardInsert(BoardVO vo) {
 		service.insert(vo); 
-		return "redirect:/boardList";
+		return "redirect:/board/boardList";
 	}
 	
 	@PostMapping("/boardDelete")
@@ -58,13 +63,13 @@ public class BoardController {
 		rttr.addAttribute("pageNum",cri.getPageNum());
 		rttr.addAttribute("searchType",cri.getSearchType());
 		rttr.addAttribute("keyword",cri.getKeyword());
-		return "redirect:/boardList";
+		return "redirect:/board/boardList";
 	}
 	
 	@PostMapping("/boardUpdateForm")
 	public String getboardUpdateForm(long bno,Model model) {
 		model.addAttribute("board",service.select(bno));
-		return "boardUpdateForm";
+		return "board/boardUpdateForm";
 	}
 	
 	@PostMapping("/boardUpdate")
@@ -75,6 +80,6 @@ public class BoardController {
 		rttr.addAttribute("pageNum",cri.getPageNum());
 		rttr.addAttribute("searchType",cri.getSearchType());
 		rttr.addAttribute("keyword",cri.getKeyword());
-		return "redirect:/boardDetail/"+vo.getBno();
+		return "redirect:/board/boardDetail/"+vo.getBno();
 	}
 }

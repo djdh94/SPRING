@@ -25,15 +25,15 @@
 			<div class="col-md-3">수정날짜 : </div>
 			<div class="col-md-3">${board.updatedate}</div>
 		</div>
-		<a href="/boardList?pageNum=${param.pageNum == null ? 1: param.pageNum}&searchType=${param.searchType}&keyword=${param.keyword}" class="btn btn-success">글목록</a>
-		<form action="/boardDelete" method="post">
+		<a href="/board/boardList?pageNum=${param.pageNum == null ? 1: param.pageNum}&searchType=${param.searchType}&keyword=${param.keyword}" class="btn btn-success">글목록</a>
+		<form action="/board/boardDelete" method="post">
 			<input type="hidden" name="bno" value="${board.bno }"/>
 			<input type="hidden" name="searchType" value="${param.searchType }"/>
 			<input type="hidden" name="keyword" value="${param.keyword }"/>
 			<input type="hidden" name="pageNum" value="${param.pageNum }"/>
 			<input type="submit" value="삭제"  class="btn btn-danger"/>
 		</form>
-		<form action="/boardUpdateForm" method="post">
+		<form action="/board/boardUpdateForm" method="post">
 			<input type="hidden" name="bno" value="${board.bno }"/>
 			<input type="hidden" name="searchType" value="${param.searchType }"/>
 			<input type="hidden" name="keyword" value="${param.keyword }"/>
