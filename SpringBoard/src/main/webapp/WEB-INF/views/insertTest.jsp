@@ -23,6 +23,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<ul id="replies">
+		
+	</ul>
 	<div>
 		<div>
 			댓글 글쓴이 <input type="text" name="replyer" id="newReplyWriter">
@@ -30,9 +33,7 @@
 		<div>
 			댓글 내용 <input type="text" name="reply" id="newReplyText">
 		</div>
-		<ul id="replies">
-		
-		</ul>
+	
 		<button id="replyAddBtn">댓글 추가</button>
 	</div>
 	

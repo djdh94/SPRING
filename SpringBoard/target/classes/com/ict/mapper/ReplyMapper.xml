@@ -5,7 +5,11 @@
 	<mapper namespace="com.ict.mapper.ReplyMapper">
 	
 		<select id="getList" resultType="com.ict.domain.ReplyVO">
-			select * from reply_tbl where bno = #{bno} order by rno desc
+<!-- 			select * from reply_tbl where bno = #{bno} order by rno desc -->
+		SELECT rownum,rt.* 
+		  FROM (SELECT * FROM reply_tbl WHERE bno=#{bno} order by REPLYDATE ASC) rt
+		  		order by rownum desc
+			 
 		</select>
 		
 		<insert id="create">
