@@ -70,15 +70,19 @@
 		
 		</ul>
 	</div>
-	<div>
-		<div>
-			댓글 글쓴이 <input type="text" name="replyer" id="newReplyWriter">
+	<div class="row box-box-success">
+		<div class="box-header">
+			<h2 class="text-primary">댓글작성</h2>
+		</div><!-- header -->
+		<div class="box-body">
+			<strong>글쓴이</strong>
+			<input type="text" id="newReplyWriter" placeholder="글쓴이" class="form-control">
+			<strong>댓글내용</strong>
+			<input type="text" id="newReplyText" placeholder="댓글내용" class="form-control">
+		</div><!-- body -->
+		<div class="box-footer">
+			<button type="button" class="btn btn-success" id="replyAddBtn">글쓰기</button>
 		</div>
-		<div>
-			댓글 내용 <input type="text" name="reply" id="newReplyText">
-		</div>
-	
-		<button id="replyAddBtn">댓글 추가</button>
 	</div>
 	
 	<!-- modal은 일종의 팝업 
@@ -181,8 +185,8 @@
 				// 형제태그 .reply의 내용을 대신 가져올수있도록
 				// 변수 replyContent를 선언해 거기에 저장 (hint:.sibling("요소명");으로 형제태그 가져옴)
 				// button 의 직전 태그인 .reply의 내용물 가져오기
-// 				let replyContent = $(this).sibling(".reply").text(); 방법1
-				let replyContent = $(this).prev().text(); //방법2
+				let replyContent = $(this).sibling(".reply").text(); //방법1
+// 				let replyContent = $(this).prev().text(); //방법2
 // 				let replyContent = $(this).parent().children(".reply").text(); //방법3
 			
 				console.log(replytag);

@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Sun Feb 12 17:09:19 KST 2023
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\hyun\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\Program Files\\apache-tomcat-9.0.70\\wtpwebapps\\SpringBoard\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
-org.eclipse.jst.jee.server\:SpringBoard=C\:\\Program Files\\apache-tomcat-9.0.70\\wtpwebapps\\SpringBoard
+#Mon Feb 13 21:37:58 KST 2023
+org.eclipse.jst.jee.server\:prj_aop=C\:\\Program Files\\apache-tomcat-9.0.70\\wtpwebapps\\prj_aop
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\hyun\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\Program Files\\apache-tomcat-9.0.70\\wtpwebapps\\prj_aop\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
