@@ -16,9 +16,19 @@ public class SampleServcieTests {
 	@Autowired
 	private SampleService service;
 	
-	@Test
+	//@Test
 	public void testClass() {
 		log.info(service);
 		log.info(service.getClass().getName());
 	}
+	
+	@Test
+	public void testAdd() throws Exception{
+		log.info(service.doAdd("123", "456"));
+	}
+	
+//	@Test
+//	public void testAdd() throws Exception{
+//		log.info(service.doAdd("123", null));
+//	}
 }
