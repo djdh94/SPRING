@@ -24,4 +24,8 @@
 			delete from reply_tbl where rno=#{rno}
 		</delete>
 		
+		<select id="getBno" resultType="long">
+			select bno from reply_tbl where rno=#{rno}
+		</select>
+		
 	</mapper>

@@ -185,8 +185,8 @@
 				// 형제태그 .reply의 내용을 대신 가져올수있도록
 				// 변수 replyContent를 선언해 거기에 저장 (hint:.sibling("요소명");으로 형제태그 가져옴)
 				// button 의 직전 태그인 .reply의 내용물 가져오기
-				let replyContent = $(this).sibling(".reply").text(); //방법1
-// 				let replyContent = $(this).prev().text(); //방법2
+// 				let replyContent = $(this).sibling(".reply").text(); //방법1
+				let replyContent = $(this).prev().text(); //방법2
 // 				let replyContent = $(this).parent().children(".reply").text(); //방법3
 			
 				console.log(replytag);
