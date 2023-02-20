@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ict.domain.BoardVO;
 import com.ict.domain.SearchCriteria;
 import com.ict.mapper.BoardMapper;
+import com.ict.mapper.ReplyMapper;
 
 @Service
 @Component
@@ -16,6 +18,9 @@ public class BoardServiceeImpl implements BoardService{
 
 	@Autowired
 	private BoardMapper boardmapper;
+	
+	@Autowired
+	private ReplyMapper replyMapper;
 
 	@Override
 	public List<BoardVO> getList(SearchCriteria cri) {
@@ -40,8 +45,11 @@ public class BoardServiceeImpl implements BoardService{
 		
 	}
 
+//	@Transactional
 	@Override
 	public void delete(long bno) {
+		// 댓글 먼저 삭제후 글삭제
+		replyMapper.deleteAllReplies(bno);
 		boardmapper.delete(bno);
 		
 	}

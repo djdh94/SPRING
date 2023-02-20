@@ -78,7 +78,7 @@
 		<update id="updateReplyCount">
 			UPDATE board_tbl 
 			set 
-			replycount = replycount + #{amount} where bno=#{bno}
+			replyCount = replyCount + #{amount} where bno=#{bno}
 		</update>
 		
 	</mapper>

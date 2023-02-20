@@ -22,9 +22,11 @@ public class ReplyServiceImpl implements ReplyService{
 	@Autowired
 	private BoardMapper boardMapper;
 	
+	@Transactional
 	@Override
 	public void addRepaly(ReplyVO vo) {
 		mapper.create(vo);
+		boardMapper.updateReplyCount(vo.getBno(),1);
 		
 	}
 
@@ -48,5 +50,7 @@ public class ReplyServiceImpl implements ReplyService{
 		mapper.delete(rno);
 		boardMapper.updateReplyCount(bno,-1);
 	}
+	
+	
 
 }

@@ -28,4 +28,8 @@
 			select bno from reply_tbl where rno=#{rno}
 		</select>
 		
+		<delete id="deleteAllReplies">
+			delete from reply_tbl where bno=#{bno}
+		</delete>
+		
 	</mapper>
