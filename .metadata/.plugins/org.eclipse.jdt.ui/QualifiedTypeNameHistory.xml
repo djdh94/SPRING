@@ -18,7 +18,6 @@
     <fullyQualifiedTypeName name="com.ict.domain.TestVO"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="com.ict.mapper.ReplyMapper"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="com.ict.service.SampleTxService"/>
     <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.ict.mapper.BoardMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.ict.mapper.ReplyMapper"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 </qualifiedTypeNameHistroy>
