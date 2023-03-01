@@ -8,6 +8,7 @@
 		 http://www.springframework.org/schema/beans/spring-beans.xsd">
 		 
 	<bean id="customAccessDenied" class="com.ict.security.CustomAccessDeniedHandler"/>
+	<bean id="customLoginSuccess" class="com.ict.security.CustomLoginSuccessHandler"/>
 	<security:http>
 		
 		
@@ -19,9 +20,11 @@
 		
 		<security:intercept-url pattern="/secu/admin" access="hasRole('ROLE_ADMIN')"/>
 		
-		<security:form-login/>
+		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 <!-- 	<security:access-denied-handler error-page="/accessError"/> -->
 		<security:access-denied-handler ref="customAccessDenied"/>
+		
+		
 		
 	</security:http>
 	<security:authentication-manager>
