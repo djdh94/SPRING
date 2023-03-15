@@ -162,3 +162,12 @@
 2월 13, 2023 20:14:44.272 NEW SESSION
 2월 13, 2023 20:14:44.272 [6064:6120:0213/201444.269:ERROR:device_event_log_impl.cc(215)] [20:14:44.269] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 2월 13, 2023 20:15:42.101 [6064:11224:0213/201542.101:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+3월 15, 2023 20:10:03.497 NEW SESSION
+3월 15, 2023 20:10:03.497 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 20:33:58.147 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 20:43:13.481 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 20:47:43.230 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 21:07:14.194 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 21:15:09.837 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 15, 2023 21:26:52.782 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

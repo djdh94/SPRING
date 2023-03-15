@@ -15,6 +15,7 @@
 	<form action="/login" method="post">
 	아이디 : <input type="text" name="username" value="admin"><br/>
 	패스워드 : <input type="text" name="password" value="admin"><br/>
+	자동로그인 : <input type="checkbox" name="remember-me"><br/>
 	<input type="submit">
 	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 	</form>
